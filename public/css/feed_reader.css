@@ -12,7 +12,8 @@ div#main {
     }
 
     input#filter_tweet {
-
+        height: 20px;
+        font-size: 14px;
     }
 
     ul#tweets_list {
@@ -77,7 +78,15 @@ div#main {
                 color: #A9A9A9;
             }
 
+            span.update_notification {
+                padding: 0px 0px 0px 40px;
+                float: left;
+                font-size: 14px;
+                color: lightgray;
+                font-weight: bold;
+            }
+
 header {
-    padding-left: 15px;
+    padding-left: 40px;
     border-bottom: 1px solid #D3D3D3;
 }

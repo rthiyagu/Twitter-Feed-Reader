@@ -47,6 +47,7 @@ $(function() {
             // bind all the methods where this is used
             _.bindAll(this, 'addItem', 'render', 'filterTweetsList');
             this.input = this.$("#filter_tweet");
+            this.update_notification = this.$(".update_notification");
             this.tweets = new TweetsList();
             // On any update to this.tweets collection, the View will be rendered
             this.tweets.bind('update', this.render);
@@ -56,6 +57,7 @@ $(function() {
             that = this;
             // update the tweets collection for every 60 seconds
             setInterval(function() {
+                that.update_notification.show();
                 that.tweets.fetch();
             }, TWEET_REFRESH_CYCLE);
         },
@@ -66,6 +68,7 @@ $(function() {
             this.$("#tweets_list").append(view.render().el);
         },
         render : function() {
+            this.update_notification.hide();
             this.$("#tweets_list").empty();
             that = this;
             this.tweets.each(function(tweet) {
