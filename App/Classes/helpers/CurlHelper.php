@@ -1,10 +1,17 @@
 <?php
-
+/**
+ * Manages Curl Request
+ */
 class CurlHelper {
 
     public $curl_info;
     public $curl_error;
 
+    /**
+     * Do CURL request to API
+     *
+     * @return JSON
+     */
     public function doCurl($options) {
         $ch = curl_init();
         curl_setopt_array($ch, $options);

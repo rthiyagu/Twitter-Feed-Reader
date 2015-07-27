@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Handles Twitter API calls
+ */
 include __DIR__.'/CurlHelper.php';
 
 class TwitterApiHelper {
@@ -18,6 +20,9 @@ class TwitterApiHelper {
         $this->curl_helper = new CurlHelper();
     }
 
+    /**
+     * Loads the config
+     */
     public function load_config() {
         $configs = parse_ini_file(dirname(dirname(__DIR__)).'/Config/config.ini', TRUE);
         $this->consumer_key = $configs['twitter_app_credentials']['consumer_key'];
@@ -27,6 +32,11 @@ class TwitterApiHelper {
         $this->user_timeline_api_params = $configs['user_timeline_api_params'];
     }
 
+    /**
+     * Calls Twitters oauth token
+     *
+     * @return token / False
+     */
     public function getBearerToken() {
         $encoded_bearer_token_credential = base64_encode(urlencode($this->consumer_key) .":" . urlencode($this->consumer_secret));
         $headers = array('Authorization: Basic '.$encoded_bearer_token_credential,
@@ -50,6 +60,11 @@ class TwitterApiHelper {
         return false;
     }
 
+    /**
+     * Calls Twitter user_timeline API
+     *
+     * @return Object
+     */
     public function getFeeds() {
         $token = $this->getBearerToken();
         if (!$token) {
