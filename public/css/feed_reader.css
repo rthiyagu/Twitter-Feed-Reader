@@ -1,0 +1,83 @@
+div#main {
+    width: 60%;
+    margin: auto;
+    background-color: #F0FFFF;
+    border: 1px solid #D3D3D3;
+}
+
+    .input_filter {
+        float: right;
+        margin: 5px;
+        margin-right: 10%;
+    }
+
+    input#filter_tweet {
+
+    }
+
+    ul#tweets_list {
+
+    }
+
+        #tweets_list li {
+            list-style: none;
+        }
+
+     .feed_item {
+        margin-bottom: 5px;
+        width: 90%;
+        clear: both;
+        display: inline-block;
+        border-bottom: 1px inset lightgray;
+     }
+
+     #tweets_list li:last-child .feed_item {
+         border-bottom: none;
+     }
+
+         .column_1 {
+            float: left;
+            position: relative;
+            display: block;
+            width: 5%;
+         }
+
+            .column_1 img {
+
+            }
+
+        .column_2 {
+            float: left;
+            position: relative;
+            display: block;
+            width: 90%;
+            margin-left: 5%;
+        }
+
+            span.username {
+                font-weight: bold;
+            }
+
+            span.user_handle {
+                color: #A9A9A9;
+            }
+
+            div.feed_content {
+                margin-top: 5px;
+            }
+
+            span.twitter_retweet {
+                background: url(icons/social_twitter_retweet.png) no-repeat;
+                height: 16px;
+                min-width: 16px;
+                text-indent: 20px;
+                display: block;
+                font-size: 12px;
+                float: right;
+                color: #A9A9A9;
+            }
+
+header {
+    padding-left: 15px;
+    border-bottom: 1px solid #D3D3D3;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+        Remove this if you use the .htaccess -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>Twitter Feed Reader</title>
+        <meta name="description" content="Sample application to read twitter feeds from user timeline">
+        <meta name="author" content="tramados">
+        <link rel="stylesheet" href="/css/feed_reader.css"/>
+
+    </head>
+
+    <body>
+        <div id="main">
+            <header>
+                <h1>Twitter Feed Reader</h1>
+            </header>
+            <div class="content">
+                <div class="input_filter">
+                    <input type="text" id="filter_tweet" placeholder="Enter text to filter the tweets" size="30">
+                </div>
+                <ul id="tweets_list"></ul>
+            </div>
+
+            <footer></footer>
+        </div>
+        <script src="/js/jquery-2.1.4.min.js"></script>
+        <script src="/js/underscore-min.js"></script>
+        <script src="/js/backbone-min.js"></script>
+        <script src="/js/tweet_model.js"></script>
+        <script src="/js/tweets_collection.js"></script>
+        <script src="/js/tweets_view.js"></script>
+        <script type="text/template" id="feed-item-template">
+            <div class="feed_item">
+                <div class="column_1">
+                    <img src="<%- user_profile %>">
+                </div>
+                <div class="column_2">
+                    <span class="username"><%- username %></span> <span class="user_handle">@<%- screen_name %></span>
+                    <div class="feed_content">
+                        <%- text %>
+                    </div>
+                    <span class="twitter_retweet" title="Retweeted <%- retweet_count %> time(s)"><%- retweet_count %></span>
+                </div>
+            </div>
+        </script>
+        <script type="text/template" id="no-feed-template">
+            <div class="feed_item">
+                No tweets found.
+            </div>
+        </script>
+
+    </body>
+</html>
